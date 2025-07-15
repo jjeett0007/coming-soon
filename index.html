@@ -12,6 +12,10 @@
       padding: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: #f3e5f5;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.07) 1px, transparent 1px);
+      background-size: 80px 80px;
       color: #333;
       text-align: center;
       height: 100vh;
@@ -60,6 +64,7 @@
       align-items: center;
       padding: 20px;
       color: white;
+      margin-bottom: 30px;
     }
 
     h1 {
@@ -80,6 +85,7 @@
       margin: 25px auto;
       font-weight: 400;
       color: #333;
+      line-height: 1.5;
     }
 
     .tape-wrapper {
@@ -99,10 +105,35 @@
     .tape {
       color: white;
       padding: 5px 0;
-      white-space: nowrap;
       font-size: 1rem;
       font-weight: 600;
       box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .tape-scroll {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 120s linear infinite;
+    }
+
+    .tape-scroll-reverse {
+      animation-name: scroll-right;
+    }
+
+    .tape-scroll span {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll-left {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes scroll-right {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0%); }
     }
 
     .tape-1 {
@@ -147,11 +178,30 @@
       color: #333;
       text-decoration: none;
       font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
     }
     .social-icons svg {
         width: 20px;
         height: 20px;
         fill: #333;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .main-content .animated-content {
+      animation: fadeInUp 1s ease-out forwards;
     }
 
     @media (max-width: 768px) {
@@ -165,6 +215,28 @@
             flex-direction: column;
             gap: 15px;
         }
+    }
+
+    .waitlist-button {
+      background-color: #9746ff;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 40px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .waitlist-button:hover {
+      background-color: #8635f5;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
   </style>
 </head>
@@ -188,17 +260,24 @@
   </div>
 
   <div class="main-content">
-    <div style="margin-bottom: 60px;">
+    <div class="animated-content" style="margin-bottom: 60px;">
       <h1>We're almost<br>ready to <span>launch!</span></h1>
       <p>Subscribe to our social networks to be the first to know all the events and get a discount on your first order!</p>
+      <a href="https://waitlist.ihaven.vip/" class="waitlist-button">Join Waitlist</a>
     </div>
     <div class="tape-wrapper">
       <div class="tape-container">
         <div class="tape tape-1">
+          <div class="tape-scroll">
             <span>COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|</span>
+            <span>COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|</span>
+          </div>
         </div>
         <div class="tape tape-2">
-          <span>COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|</span>
+          <div class="tape-scroll tape-scroll-reverse">
+            <span>COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|</span>
+            <span>COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|&nbsp; COMING SOON &nbsp;|</span>
+          </div>
         </div>
       </div>
     </div>
